@@ -61,7 +61,7 @@ def get_expense(expense_id: int, session: SessionDep) -> Expense:
 @app.put("/expenses/{expense_id}")
 def update_expense(expense_id: int, data: ExpenseIn, session: SessionDep) -> Expense:
     expense = find_or_404(session, expense_id)
-    expense.sqlmodel_update(data.model_dump())
+    expense.sqlmodel_update(data.model_dump(exclude_unset = True))
     session.add(expense)
     session.commit()
     session.refresh(expense)
