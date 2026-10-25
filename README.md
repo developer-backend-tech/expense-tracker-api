@@ -7,3 +7,9 @@ FastAPI + SQLite to add, list, update and delete expenses, with totals per categ
     uvicorn main:app --reload
 
 Then open http://127.0.0.1:8000/docs
+
+## Tests
+    pip install pytest
+    pytest
+
+Tests run automatically on every push and pull request via github actions
